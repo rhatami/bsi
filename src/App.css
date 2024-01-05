@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'rezvan';
+    font-style: normal;
+    src:url(assets/Fonts/A.Rezvan.ttf) format('truetype'); 
+}
+
+@font-face {
+    font-family: 'mitra';
+    font-style: normal;
+    src:url(assets/Fonts/BMitra.TTF) format('truetype'); 
+}
+
+@font-face {
+    font-family: 'yekan';
+    font-style: normal;
+    src:url(assets/Fonts/BYekan.TTF) format('truetype'); 
+}
+
+/* .HeaderGrid{
+    background-color: rgb(25, 118, 210);
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+}
+
+.Header{
+    padding:0.5%;
+} */
+
+.HeaderTitle{
+    font-family: rezvan !important;
+    color: white;
+    font-size: x-large;
+    padding-right: 2%;
+}
+
+
+.FilterBarGrid{
+    height: 10%;
+    width: 92% !important;
+    margin-right: 4% !important;
+    margin-bottom: 0.5%;
+    padding-right: 2%;
+    padding-top: 1%;
+  }
+
+.DataTableGrid {
+    width: 96% !important;
+    margin-right: 2% !important;
+}
+
+.MuiDataGrid-virtualScroller{
+    min-height: 10vh !important;
+    font-family: mitra !important;
+    font-size: large !important;
+}
+
+.MuiDataGrid-columnHeaderTitle{
+    font-family: yekan !important;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.MuiButton-text {
+    font-family: yekan !important;
+    font-size: large !important;
+}
+
+.MuiButton-startIcon{
+    margin-left: 5px !important;
+    font-size: large !important;
+}
+
+.MuiDataGrid-cell{
+    font-family: rezvan !important;
+}
+
+.MuiTypography-root{
+    font-family: mitra !important;
+}
+
+
+.MuiInputBase-root{
+    font-family: mitra !important;
+    font-size: large !important;
+    margin-bottom: 2%;
+
+}
+
+.MuiMenuItem-root{
+    font-family: mitra !important;
+    font-size: large !important;
+}
+
+.DepositAmountField{
+    font-family: yekan !important;
+    height: 50%;
+    width: 85%;
+    margin-right: 5% !important;
+}
+
+.MuiFormHelperText-root{
+    font-family: mitra !important;
+    font-size: medium !important;
+    text-align: right !important;
+}
+
+.MuiButton-contained{
+    font-family: yekan !important;
+    font-size: large !important;
+    height: 100%;
+    margin-top: 2% !important;
+}
+
+.MuiDataGrid-selectedRowCount{
+    visibility: hidden !important;
+}
+
+.DepositPeriod::before{
+    content: "میانگین "; /* add text after DP */
+    float: right; 
+    padding-left: 4px;
+}
+
+.DepositPeriod::after{
+    content: "ماهه"; /* add text after DP */
+    float: left; 
+    padding-right: 4px;
+}
+
+.PaybackPeriod::after{
+    content: "ماهه"; /* add text after DP */
+    float: left; 
+    padding-right: 4px;
+}
+
+.Ratio::after{
+    content: "%"; /* add text after DP */
+    float: left; 
+    padding-right: 1px;
+}
+
+.Interest::after{
+    content: "%"; /* add text after DP */
+    float: left; 
+    padding-right: 1px;
+}
+
+.LoanAmount::after{
+    content: "\FDFC"; /* add text after DP */
+    float: left; 
+    padding-right: 5px;
+}
+
+.Installment::after{
+    content: "\FDFC"; /* add text after DP */
+    float: left; 
+    padding-right: 5px;
+}
+
+.Footer{
+    font-family: yekan !important;
+    font-size: large !important;
+    margin-right: 4% !important;
+    margin-bottom: 1% !important;
+}

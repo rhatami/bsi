@@ -1,0 +1,83 @@
+import {Row,Payback_Type,Tarh , TarhName , CustomerType} from "../components/Types";
+
+const Installment = Payback_Type.Installment;
+const OneTime = Payback_Type.OneTime;
+
+const TarhRows:Row[] = [
+    {DepositPeriod:2,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:23},
+    {DepositPeriod:3,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:22},
+    {DepositPeriod:4,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:21},
+    {DepositPeriod:5,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:20},
+    {DepositPeriod:6,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:19},
+    {DepositPeriod:7,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:18},
+    {DepositPeriod:8,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:17},
+    {DepositPeriod:9,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:16},
+    {DepositPeriod:10,Ratio:75,PaybackType:OneTime,PaybackPeriod:12,InterestRate:15},
+    {DepositPeriod:2,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:23},
+    {DepositPeriod:3,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:22},
+    {DepositPeriod:4,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:21},
+    {DepositPeriod:5,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:20},
+    {DepositPeriod:6,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:19},
+    {DepositPeriod:7,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:18},
+    {DepositPeriod:8,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:17},
+    {DepositPeriod:9,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:16},
+    {DepositPeriod:10,Ratio:100,PaybackType:Installment,PaybackPeriod:18,InterestRate:15},
+    {DepositPeriod:2,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:23},
+    {DepositPeriod:3,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:22},
+    {DepositPeriod:4,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:21},
+    {DepositPeriod:5,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:20},
+    {DepositPeriod:6,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:19},
+    {DepositPeriod:7,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:18},
+    {DepositPeriod:8,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:17},
+    {DepositPeriod:9,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:16},
+    {DepositPeriod:10,Ratio:100,PaybackType:OneTime,PaybackPeriod:9,InterestRate:15},
+    {DepositPeriod:2,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:23},
+    {DepositPeriod:3,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:22},
+    {DepositPeriod:4,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:21},
+    {DepositPeriod:5,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:20},
+    {DepositPeriod:6,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:19},
+    {DepositPeriod:7,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:18},
+    {DepositPeriod:8,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:17},
+    {DepositPeriod:9,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:16},
+    {DepositPeriod:10,Ratio:150,PaybackType:Installment,PaybackPeriod:12,InterestRate:15},
+    {DepositPeriod:2,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:23},
+    {DepositPeriod:3,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:22},
+    {DepositPeriod:4,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:21},
+    {DepositPeriod:5,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:20},
+    {DepositPeriod:6,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:19},
+    {DepositPeriod:7,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:18},
+    {DepositPeriod:8,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:17},
+    {DepositPeriod:9,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:16},
+    {DepositPeriod:10,Ratio:150,PaybackType:OneTime,PaybackPeriod:6,InterestRate:15},
+    {DepositPeriod:2,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:23},
+    {DepositPeriod:3,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:22},
+    {DepositPeriod:4,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:21},
+    {DepositPeriod:5,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:20},
+    {DepositPeriod:6,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:19},
+    {DepositPeriod:7,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:18},
+    {DepositPeriod:8,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:17},
+    {DepositPeriod:9,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:16},
+    {DepositPeriod:10,Ratio:200,PaybackType:Installment,PaybackPeriod:9,InterestRate:15},
+    {DepositPeriod:2,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:23},
+    {DepositPeriod:3,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:22},
+    {DepositPeriod:4,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:21},
+    {DepositPeriod:5,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:20},
+    {DepositPeriod:6,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:19},
+    {DepositPeriod:7,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:18},
+    {DepositPeriod:8,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:17},
+    {DepositPeriod:9,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:16},
+    {DepositPeriod:10,Ratio:200,PaybackType:OneTime,PaybackPeriod:3,InterestRate:15},
+]
+
+const Sana_Kasbokar:Tarh = {
+    Name:TarhName.SNK,
+    CustomerType:[CustomerType.Business,CustomerType.Legal],
+    MinLoan:100_000_000,
+    MaxLoan : 50_000_000_000,
+    Rows:TarhRows,
+    DepositeRange:[2,3,4,5,6,7,8,9,10]
+}
+
+
+
+export default Sana_Kasbokar
