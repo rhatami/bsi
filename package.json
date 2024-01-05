@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://rhatami.github.io/Tarh-Tashilat",
+  "homepage": "https://rhatami.github.io/bsi",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

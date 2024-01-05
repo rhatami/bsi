@@ -46,7 +46,7 @@ function FilterBar({ onSubmit, Filter }: Props) {
           <FilledInput
             type="number"
             className="DepositAmountField"
-            defaultValue={Filter.DepAmo ? Filter.DepAmo : 0}
+            defaultValue={Filter.DepAmo ? Filter.DepAmo : 100000000}
             {...register("DA", {
               required: true,
               min: 100_000_000,
