@@ -13,6 +13,44 @@ interface Props {
 
 const smallColumns: GridColDef[] = [
   {
+    field: "LoanAmount",
+    headerName: "مبلغ تسهیلات",
+    type: "number",
+    width: 200,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "LoanAmount",
+  },
+  {
+    field: "InterestRate",
+    headerName: "نرخ سود",
+    type: "number",
+    width: 100,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "Interest",
+  },
+  {
+    field: "PaybackPeriod",
+    headerName: "مدت بازپرداخت",
+    type: "number",
+    width: 150,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "PaybackPeriod",
+  },
+  {
+    field: "TarhName",
+    headerName: "نام طرح",
+    width: 180,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "TarhName",
+  },
+];
+
+const mediumColumns: GridColDef[] = [
+  {
     field: "TarhName",
     headerName: "نام طرح",
     width: 180,
@@ -46,6 +84,15 @@ const smallColumns: GridColDef[] = [
     headerAlign: "center",
     align: "center",
     cellClassName: "PaybackPeriod",
+  },
+  {
+    field: "Installment",
+    headerName: "مبلغ هر قسط",
+    type: "number",
+    width: 180,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "Installment",
   },
 ];
 
@@ -159,7 +206,13 @@ const DataTable = ({ Data, pageSize }: Props) => {
     <div className="DataTableDiv">
       <DataGrid
         rows={Data}
-        columns={pageSize == "lg" ? LargeColumns : smallColumns}
+        columns={
+          pageSize == "lg"
+            ? LargeColumns
+            : pageSize == "md"
+            ? mediumColumns
+            : smallColumns
+        }
         hideFooterPagination={true}
         showCellVerticalBorder
         localeText={translate}

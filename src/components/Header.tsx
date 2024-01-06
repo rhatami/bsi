@@ -8,12 +8,12 @@ function Header({ pageSize }: Props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        {pageSize == "lg" ? (
+        {pageSize == "sm" ? (
+          <p className="HeaderTitle">طرح های تسهیلاتی بانک صادرات</p>
+        ) : (
           <p className="HeaderTitle">
             محاسبه طرح های تسهیلاتی بانک صادرات ایران
           </p>
-        ) : (
-          <p className="HeaderTitle">طرح های تسهیلاتی بانک صادرات</p>
         )}
       </AppBar>
     </Box>

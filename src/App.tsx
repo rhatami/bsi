@@ -14,7 +14,11 @@ function App() {
   const [filter, setFilter] = useState<Filter>({} as Filter);
   const [data, setData] = useState<DataRow[]>([]);
   const theme = useTheme();
-  const pageSize = useMediaQuery(theme.breakpoints.up("md")) ? "lg" : "nlg";
+  const pageSize = useMediaQuery(theme.breakpoints.up("md"))
+    ? "lg"
+    : useMediaQuery(theme.breakpoints.up("sm"))
+    ? "md"
+    : "sm";
 
   return (
     <Box sx={{ flexGrow: 1 }}>

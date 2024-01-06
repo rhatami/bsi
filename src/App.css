@@ -16,19 +16,6 @@
     src:url(assets/Fonts/BYekan.TTF) format('truetype'); 
 }
 
-/* .HeaderGrid{
-    background-color: rgb(25, 118, 210);
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-    margin-top: 0.5%;
-    margin-bottom: 1%;
-    border-radius: 5px;
-}
-
-.Header{
-    padding:0.5%;
-} */
-
 .HeaderTitle{
     font-family: rezvan !important;
     color: white;
@@ -65,7 +52,7 @@
 
 .MuiButton-text {
     font-family: yekan !important;
-    font-size: large !important;
+    font-size: large;
 }
 
 .MuiButton-startIcon{
