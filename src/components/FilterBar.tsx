@@ -1,9 +1,7 @@
 import { Filter } from "./FilterData";
 import { TarhName, TarhNameFa, CustomerType, CustomerTypeFa } from "./Types";
 import Stack from "@mui/material/Stack";
-import { Divider, FormHelperText } from "@mui/material";
-import FilledInput from "@mui/material/FilledInput";
-import InputAdornment from "@mui/material/InputAdornment";
+import { Divider, FormHelperText, Input, InputAdornment } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -17,6 +15,7 @@ interface Props {
 
 function FilterBar({ onSubmit, Filter }: Props) {
   const { register, handleSubmit } = useForm();
+
   return (
     <form
       onSubmit={handleSubmit((data) =>
@@ -36,20 +35,18 @@ function FilterBar({ onSubmit, Filter }: Props) {
         {/* Deposite Amount 
       Field
        */}
-        <FormControl
-          sx={{ m: 1, minWidth: 120 }}
-          size="small"
-          variant="filled"
-          required
-        >
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" required>
           <FormHelperText>میانگین مبلغ سپرده</FormHelperText>
-          <FilledInput
+          <Input
             type="number"
             className="DepositAmountField"
             defaultValue={Filter.DepAmo ? Filter.DepAmo : 100000000}
             {...register("DA", {
               required: true,
-              min: 100_000_000,
+              min: {
+                value: 100_000_000,
+                message: "حداقل مبلغ 100,000,000 ریال",
+              },
             })}
             endAdornment={
               <InputAdornment position="start">ريال</InputAdornment>

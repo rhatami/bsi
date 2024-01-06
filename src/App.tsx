@@ -26,8 +26,8 @@ function App() {
         <Grid id="Header" className="HeaderGrid" xs={12}>
           <Header pageSize={pageSize} />
         </Grid>
-        <Grid className="FilterBarGrid" xs={12}>
-          <Paper elevation={5} square={false}>
+        <Grid id="Filter" className="FilterBarGrid" xs={12}>
+          <Paper elevation={5} square={false} className="FilterBarPaper">
             <FilterBar
               Filter={filter}
               onSubmit={(filter) => {

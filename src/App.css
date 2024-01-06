@@ -31,7 +31,12 @@
     margin-bottom: 0.5%;
     padding-right: 2%;
     padding-top: 1%;
-  }
+}
+
+.FilterBarPaper{
+    padding-bottom: 1%;
+    padding-right: 1%;
+}
 
 .DataTableGrid {
     width: 96% !important;
@@ -50,9 +55,9 @@
     font-size: medium;
 }
 
-.MuiButton-text {
+.ExportToolbar {
     font-family: yekan !important;
-    font-size: large;
+    font-size: large !important;
 }
 
 .MuiButton-startIcon{
@@ -98,7 +103,22 @@
     font-family: yekan !important;
     font-size: large !important;
     height: 100%;
-    margin-top: 2% !important;
+    margin-top: 1.8% !important;
+}
+
+/* Hide number field arrows */
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    appearance: none; 
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: none; 
+
 }
 
 .MuiDataGrid-selectedRowCount{

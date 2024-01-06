@@ -190,6 +190,7 @@ function CustomToolbar() {
   return (
     <GridToolbarContainer>
       <GridToolbarExport
+        className="ExportToolbar"
         printOptions={{
           hideFooter: true,
           hideToolbar: true,
