@@ -7,16 +7,20 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useState } from "react";
 import Footer from "./components/Footer";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 function App() {
   const [filter, setFilter] = useState<Filter>({} as Filter);
   const [data, setData] = useState<DataRow[]>([]);
+  const theme = useTheme();
+  const pageSize = useMediaQuery(theme.breakpoints.up("md")) ? "lg" : "nlg";
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid id="Header" className="HeaderGrid" xs={12}>
-          <Header />
+          <Header pageSize={pageSize} />
         </Grid>
         <Grid className="FilterBarGrid" xs={12}>
           <Paper elevation={5} square={false}>
@@ -31,7 +35,7 @@ function App() {
         </Grid>
         <Grid xs={12} id="Main">
           <Paper elevation={5} square={false} className="DataTableGrid">
-            <DataTable Data={data} />
+            <DataTable Data={data} pageSize={pageSize} />
           </Paper>
         </Grid>
         <Grid xs={12} id="Footer">

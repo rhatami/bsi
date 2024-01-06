@@ -8,9 +8,48 @@ import {
 
 interface Props {
   Data: DataRow[];
+  pageSize: string;
 }
 
-const columns: GridColDef[] = [
+const smallColumns: GridColDef[] = [
+  {
+    field: "TarhName",
+    headerName: "نام طرح",
+    width: 180,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "TarhName",
+  },
+  {
+    field: "LoanAmount",
+    headerName: "مبلغ تسهیلات",
+    type: "number",
+    width: 200,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "LoanAmount",
+  },
+  {
+    field: "InterestRate",
+    headerName: "نرخ سود",
+    type: "number",
+    width: 100,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "Interest",
+  },
+  {
+    field: "PaybackPeriod",
+    headerName: "مدت بازپرداخت",
+    type: "number",
+    width: 150,
+    headerAlign: "center",
+    align: "center",
+    cellClassName: "PaybackPeriod",
+  },
+];
+
+const LargeColumns: GridColDef[] = [
   {
     field: "TarhName",
     headerName: "نام طرح",
@@ -115,12 +154,12 @@ function CustomToolbar() {
   );
 }
 
-const DataTable = ({ Data }: Props) => {
+const DataTable = ({ Data, pageSize }: Props) => {
   return (
     <div className="DataTableDiv">
       <DataGrid
         rows={Data}
-        columns={columns}
+        columns={pageSize == "lg" ? LargeColumns : smallColumns}
         hideFooterPagination={true}
         showCellVerticalBorder
         localeText={translate}
