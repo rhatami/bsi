@@ -16,6 +16,10 @@
     src:url(assets/Fonts/BYekan.TTF) format('truetype'); 
 }
 
+body{
+    background: #E2E3E7;
+}
+
 .HeaderTitle{
     font-family: rezvan !important;
     color: white;
