@@ -17,7 +17,9 @@
 }
 
 body{
-    background: #E2E3E7;
+    background-color: #E2E3E7;
+    background: rgb(201,201,201);
+    background: radial-gradient(circle, rgba(201,201,201,1) 50%, rgba(226,227,231,1) 85%); 
 }
 
 .HeaderTitle{
