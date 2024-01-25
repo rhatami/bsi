@@ -24,8 +24,8 @@ export const TarhNameFa:TarhNameDic={
     [TarhName.SNK]: "سنا کسب و کار",
     [TarhName.GSP]:"قرض الحسنه سپاس",
     [TarhName.MSP]: "مرابحه سپاس",
-    [TarhName.SBJ]: "صبای سپهر جاری",
-    [TarhName.SBK]: "صبای سپهر کوتاه مدت"}
+    [TarhName.SBJ]: "صبای سپهر 2 (جاری)",
+    [TarhName.SBK]: "صبای سپهر 2 (کوتاه مدت)"}
 
 export enum CustomerType{
     Real="Real",
