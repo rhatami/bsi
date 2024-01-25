@@ -15,7 +15,7 @@ const Misagh_Hoghughi:Tarh = {
     Name:TarhName.MSH,
     CustomerType:[CustomerType.Legal],
     MinLoan:2_000_000_000,
-    MaxLoan : Max_Amount.Unlimited,
+    MaxLoan : Max_Amount.Max,
     Rows:TarhRows,
     DepositeRange:[3,6,12]
 

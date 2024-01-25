@@ -6,7 +6,9 @@ export enum TarhName{
     SN="SN",
     SNK="SNK",
     GSP="GSP",
-    MSP="MSP"
+    MSP="MSP",
+    SBJ="SBJ",
+    SBK="SBK",
 }
 
 interface TarhNameDic {
@@ -21,7 +23,9 @@ export const TarhNameFa:TarhNameDic={
     [TarhName.SN]: "سنا 2",
     [TarhName.SNK]: "سنا کسب و کار",
     [TarhName.GSP]:"قرض الحسنه سپاس",
-    [TarhName.MSP]: "مرابحه سپاس"}
+    [TarhName.MSP]: "مرابحه سپاس",
+    [TarhName.SBJ]: "صبای سپهر جاری",
+    [TarhName.SBK]: "صبای سپهر کوتاه مدت"}
 
 export enum CustomerType{
     Real="Real",
@@ -42,8 +46,8 @@ export const  CustomerTypeFa:CustomerTypeDic = {
 }
 
 export enum Max_Amount{
-    Real_Max = 3_000_000_000,
-    Unlimited = 1_000_000_000_000_000_000
+    Real_Max = 5_075_000_000,
+    Max = 50_000_000_000
 }
 
 export enum Payback_Type{

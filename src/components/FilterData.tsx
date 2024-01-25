@@ -5,6 +5,7 @@ import {
   TarhNameFa,
   CustomerType,
   Max_Amount,
+  Payback_Type,
 } from "./Types";
 import Jari_Talaei from "../Tarh/Jari_Talaei";
 import Jari_Talaei_Kasbokar from "../Tarh/Jari_Talaei_Kasbokar";
@@ -14,6 +15,8 @@ import Sana from "../Tarh/Sana";
 import Sana_Kasbokar from "../Tarh/Sana_Kasbokar";
 import Gharzolhasane_Sepas from "../Tarh/Gharzolhasane_Sepas";
 import Morabehe_Sepas from "../Tarh/Morabehe_Sepas";
+import Saba_Jari from "../Tarh/Saba_Jari";
+import Saba_KootahModdat from "../Tarh/Saba_KootahModdat";
 
 export interface Filter {
   DepAmo: number;
@@ -42,18 +45,28 @@ const TarhArr: TarhArray = {
   [TarhName.SNK]: Sana_Kasbokar,
   [TarhName.GSP]: Gharzolhasane_Sepas,
   [TarhName.MSP]: Morabehe_Sepas,
+  [TarhName.SBJ]: Saba_Jari,
+  [TarhName.SBK]: Saba_KootahModdat,
 };
 
-export function PMT(
+function PMT(
   LoanAmount: number,
   InterestRate: number,
-  PaymentPeriod: number
+  PaybackPeriod: number,
+  PaybackType: Payback_Type
 ) {
-  let pmt, pvif;
   InterestRate = InterestRate / 1200;
-  if (InterestRate === 0) return LoanAmount / PaymentPeriod;
 
-  pvif = Math.pow(1 + InterestRate, PaymentPeriod);
+  if (PaybackType === Payback_Type.OneTime) {
+    const interest = LoanAmount * InterestRate * PaybackPeriod;
+    return LoanAmount + interest;
+  }
+
+  if (InterestRate === 0) return LoanAmount / PaybackPeriod;
+
+  let pmt, pvif;
+
+  pvif = Math.pow(1 + InterestRate, PaybackPeriod);
   pmt = (InterestRate * (LoanAmount * pvif)) / (pvif - 1);
 
   return pmt;
@@ -90,7 +103,7 @@ function getDataRow(
         TarhName: TarhNameFa[Tarh.Name],
         LoanAmount: LoanAmount,
         Installment: Math.round(
-          PMT(LoanAmount, row.InterestRate, row.PaybackPeriod)
+          PMT(LoanAmount, row.InterestRate, row.PaybackPeriod, row.PaybackType)
         ),
       });
     }

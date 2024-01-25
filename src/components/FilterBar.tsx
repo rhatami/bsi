@@ -40,7 +40,7 @@ function FilterBar({ onSubmit, Filter }: Props) {
           <Input
             type="number"
             className="DepositAmountField"
-            defaultValue={Filter.DepAmo ? Filter.DepAmo : 100000000}
+            defaultValue={Filter.DepAmo ? Filter.DepAmo : 1000000000}
             {...register("DA", {
               required: true,
               min: {
@@ -126,6 +126,8 @@ function FilterBar({ onSubmit, Filter }: Props) {
             <MenuItem value={TarhName.MSH}>{TarhNameFa.MSH}</MenuItem>
             <MenuItem value={TarhName.SNK}>{TarhNameFa.SNK}</MenuItem>
             <MenuItem value={TarhName.JTK}>{TarhNameFa.JTK}</MenuItem>
+            <MenuItem value={TarhName.SBJ}>{TarhNameFa.SBJ}</MenuItem>
+            <MenuItem value={TarhName.SBK}>{TarhNameFa.SBK}</MenuItem>
           </Select>
         </FormControl>
         {/* Submit
