@@ -112,6 +112,14 @@ body{
     margin-top: 1.8% !important;
 }
 
+.rotationMessageDiv{
+    padding:2%;
+    text-align: center;
+    font-family: mitra !important;
+    font-size: large !important;
+    color: red;
+}
+
 /* Hide number field arrows */
 /* Chrome, Safari, Edge, Opera */
 input[type=number]::-webkit-inner-spin-button, 

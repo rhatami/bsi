@@ -39,6 +39,12 @@ function App() {
         </Grid>
         <Grid xs={12} id="Main">
           <Paper elevation={5} square={false} className="DataTableGrid">
+            {pageSize === "sm" && (
+              <div key="rotation-message" className="rotationMessageDiv">
+                برای نمایش اطلاعات بیشتر ، لطفا گوشی خود را به حالت افقی
+                بچرخانید.
+              </div>
+            )}
             <DataTable Data={data} pageSize={pageSize} />
           </Paper>
         </Grid>
