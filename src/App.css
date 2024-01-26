@@ -185,3 +185,7 @@ input[type=number] {
     margin-right: 4% !important;
     margin-bottom: 1% !important;
 }
+
+.Footer a{
+    text-decoration: none !important;
+}
