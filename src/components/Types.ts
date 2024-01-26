@@ -9,6 +9,10 @@ export enum TarhName{
     MSP="MSP",
     SBJ="SBJ",
     SBK="SBK",
+    TM2="TM2",
+    TM3="TM3",
+    TM4="TM4",
+    TM6="TM6",
 }
 
 interface TarhNameDic {
@@ -25,7 +29,12 @@ export const TarhNameFa:TarhNameDic={
     [TarhName.GSP]:"قرض الحسنه سپاس",
     [TarhName.MSP]: "مرابحه سپاس",
     [TarhName.SBJ]: "صبای سپهر 2 (جاری)",
-    [TarhName.SBK]: "صبای سپهر 2 (کوتاه مدت)"}
+    [TarhName.SBK]: "صبای سپهر 2 (کوتاه مدت)",
+    [TarhName.TM2]: "تیمچه 2",
+    [TarhName.TM3]: "تیمچه 3",
+    [TarhName.TM4]: "تیمچه 4",
+    [TarhName.TM6]: "تیمچه 6",
+}
 
 export enum CustomerType{
     Real="Real",

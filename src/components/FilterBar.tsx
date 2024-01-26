@@ -128,6 +128,10 @@ function FilterBar({ onSubmit, Filter }: Props) {
             <MenuItem value={TarhName.JTK}>{TarhNameFa.JTK}</MenuItem>
             <MenuItem value={TarhName.SBJ}>{TarhNameFa.SBJ}</MenuItem>
             <MenuItem value={TarhName.SBK}>{TarhNameFa.SBK}</MenuItem>
+            <MenuItem value={TarhName.TM2}>{TarhNameFa.TM2}</MenuItem>
+            <MenuItem value={TarhName.TM3}>{TarhNameFa.TM3}</MenuItem>
+            <MenuItem value={TarhName.TM4}>{TarhNameFa.TM4}</MenuItem>
+            <MenuItem value={TarhName.TM6}>{TarhNameFa.TM6}</MenuItem>
           </Select>
         </FormControl>
         {/* Submit

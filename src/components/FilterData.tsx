@@ -17,6 +17,10 @@ import Gharzolhasane_Sepas from "../Tarh/Gharzolhasane_Sepas";
 import Morabehe_Sepas from "../Tarh/Morabehe_Sepas";
 import Saba_Jari from "../Tarh/Saba_Jari";
 import Saba_KootahModdat from "../Tarh/Saba_KootahModdat";
+import Timche2 from "../Tarh/Timche2";
+import Timche3 from "../Tarh/Timche3";
+import Timche4 from "../Tarh/Timche4";
+import Timche6 from "../Tarh/Timche6";
 
 export interface Filter {
   DepAmo: number;
@@ -47,6 +51,10 @@ const TarhArr: TarhArray = {
   [TarhName.MSP]: Morabehe_Sepas,
   [TarhName.SBJ]: Saba_Jari,
   [TarhName.SBK]: Saba_KootahModdat,
+  [TarhName.TM2]: Timche2,
+  [TarhName.TM3]: Timche3,
+  [TarhName.TM4]: Timche4,
+  [TarhName.TM6]: Timche6,
 };
 
 function PMT(
