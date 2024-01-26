@@ -30,7 +30,7 @@ const Misagh_Haghighi:Tarh = {
     MinLoan:80_000_000,
     MaxLoan : Max_Amount.Real_Max,
     Rows:TarhRows,
-    DepositeRange:[3,4,5,6,7,8,9,10,11,12]
+    DepositePeriod:[3,4,5,6,7,8,9,10,11,12]
 }
 
 export default Misagh_Haghighi

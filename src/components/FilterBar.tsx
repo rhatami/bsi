@@ -121,17 +121,15 @@ function FilterBar({ onSubmit, Filter }: Props) {
             <MenuItem value={TarhName.SN}>{TarhNameFa.SN}</MenuItem>
             <MenuItem value={TarhName.MS}>{TarhNameFa.MS}</MenuItem>
             <MenuItem value={TarhName.JT}>{TarhNameFa.JT}</MenuItem>
-            <MenuItem value={TarhName.GSP}>{TarhNameFa.GSP}</MenuItem>
-            <MenuItem value={TarhName.MSP}>{TarhNameFa.MSP}</MenuItem>
-            <MenuItem value={TarhName.MSH}>{TarhNameFa.MSH}</MenuItem>
+            <MenuItem value={TarhName.GSP}>سپاس</MenuItem>
+            <MenuItem value="Divider" disabled={true}>
+              _______________
+            </MenuItem>
             <MenuItem value={TarhName.SNK}>{TarhNameFa.SNK}</MenuItem>
+            <MenuItem value={TarhName.MSH}>{TarhNameFa.MSH}</MenuItem>
             <MenuItem value={TarhName.JTK}>{TarhNameFa.JTK}</MenuItem>
-            <MenuItem value={TarhName.SBJ}>{TarhNameFa.SBJ}</MenuItem>
-            <MenuItem value={TarhName.SBK}>{TarhNameFa.SBK}</MenuItem>
-            <MenuItem value={TarhName.TM2}>{TarhNameFa.TM2}</MenuItem>
-            <MenuItem value={TarhName.TM3}>{TarhNameFa.TM3}</MenuItem>
-            <MenuItem value={TarhName.TM4}>{TarhNameFa.TM4}</MenuItem>
-            <MenuItem value={TarhName.TM6}>{TarhNameFa.TM6}</MenuItem>
+            <MenuItem value={TarhName.TM2}>تیمچه</MenuItem>
+            <MenuItem value={TarhName.SBJ}>صبای سپهر 2</MenuItem>
           </Select>
         </FormControl>
         {/* Submit

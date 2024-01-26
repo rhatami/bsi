@@ -44,7 +44,7 @@ const Morabahe_Sepas:Tarh = {
     MinLoan:100_000_000,
     MaxLoan : 10_000_000_000,
     Rows:TarhRows,
-    DepositeRange:[2,3,4,5,6,7,8,9,10,11,12]
+    DepositePeriod:[2,3,4,5,6,7,8,9,10,11,12]
 
 }
 

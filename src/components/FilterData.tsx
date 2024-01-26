@@ -128,24 +128,37 @@ function dataID(dataRow: DataRow[]) {
   }
   return dataRow;
 }
+
 export function FilterData(filter: Filter) {
   // converting to numbers if string
   filter.DepAmo = Number(filter.DepAmo);
   filter.DepPer = Number(filter.DepPer);
 
   let Filter: Tarh[] = [];
-  // Filter by TarhName , Customer Type & Deposite Priod
+
+  // Filter by TarhName , Customer Type & Deposite Period
   if (filter.TarhNm != "All") {
-    if (
-      TarhArr[filter.TarhNm].CustomerType.includes(filter.CusTyp) &&
-      TarhArr[filter.TarhNm].DepositeRange.includes(filter.DepPer)
-    )
-      Filter.push(TarhArr[filter.TarhNm]);
-  } else {
+    // add diffrent forms of a Tarh
+    let SubTarhs: Tarh[] = [TarhArr[filter.TarhNm]];
+
+    if (filter.TarhNm === TarhName.GSP) SubTarhs.push(Morabehe_Sepas);
+    if (filter.TarhNm === TarhName.SBJ) SubTarhs.push(Saba_KootahModdat);
+    if (filter.TarhNm === TarhName.TM2)
+      SubTarhs.push(Timche3, Timche4, Timche6);
+
+    for (let tarh of SubTarhs)
+      if (
+        tarh.CustomerType.includes(filter.CusTyp) &&
+        tarh.DepositePeriod.includes(filter.DepPer)
+      )
+        Filter.push(tarh);
+  }
+  // All Tarh
+  else {
     for (let index in TarhArr) {
       if (
         TarhArr[index].CustomerType.includes(filter.CusTyp) &&
-        TarhArr[index].DepositeRange.includes(filter.DepPer)
+        TarhArr[index].DepositePeriod.includes(filter.DepPer)
       )
         Filter.push(TarhArr[index]);
     }

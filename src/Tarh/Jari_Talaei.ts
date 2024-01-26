@@ -26,7 +26,7 @@ const Jari_Talaei:Tarh = {
     MinLoan:60_000_000,
     MaxLoan : Max_Amount.Real_Max,
     Rows:TarhRows,
-    DepositeRange:[3,6,9,12]
+    DepositePeriod:[3,6,9,12]
 }
 
 export default Jari_Talaei

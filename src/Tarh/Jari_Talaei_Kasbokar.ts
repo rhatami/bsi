@@ -22,7 +22,7 @@ const Jari_Talaei_Kasbokar:Tarh = {
     MinLoan:3_000_000_000,
     MaxLoan : 50_000_000_000,
     Rows:TarhRows,
-    DepositeRange:[3,6,9]
+    DepositePeriod:[3,6,9]
 }
 
 export default Jari_Talaei_Kasbokar

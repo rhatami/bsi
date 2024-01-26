@@ -17,7 +17,7 @@ const Misagh_Hoghughi:Tarh = {
     MinLoan:2_000_000_000,
     MaxLoan : Max_Amount.Max,
     Rows:TarhRows,
-    DepositeRange:[3,6,12]
+    DepositePeriod:[3,6,12]
 
 }
 

@@ -26,7 +26,7 @@ const Sana:Tarh = {
     MinLoan:100_000_000,
     MaxLoan : Max_Amount.Real_Max,
     Rows:TarhRows,
-    DepositeRange:[2,3,4,5,6,7,8,9,10]
+    DepositePeriod:[2,3,4,5,6,7,8,9,10]
 }
 
 export default Sana

@@ -16,7 +16,7 @@ const Timche:Tarh = {
     MinLoan:2_500_000_000,
     MaxLoan : 30_000_000_000,
     Rows:TarhRows,
-    DepositeRange:[3,5,7,9,11]
+    DepositePeriod:[3,5,7,9,11]
 }
 
 export default Timche

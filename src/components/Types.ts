@@ -77,6 +77,6 @@ export interface Tarh{
     MinLoan:number;
     MaxLoan:number;
     CustomerType:CustomerType[]
-    DepositeRange:number[]
+    DepositePeriod:number[]
     Rows:Row[];
 }

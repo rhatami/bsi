@@ -33,7 +33,7 @@ const Saba_KootahModdat:Tarh = {
     MinLoan:150_000_000,
     MaxLoan : Max_Amount.Max,
     Rows:TarhRows,
-    DepositeRange:[3,4,5,6,7,8,9,10,11,12]
+    DepositePeriod:[3,4,5,6,7,8,9,10,11,12]
 }
 
 export default Saba_KootahModdat
