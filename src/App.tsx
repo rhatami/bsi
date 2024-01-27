@@ -9,6 +9,7 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import MobileTable from "./components/MobileTable";
 
 function App() {
   const [filter, setFilter] = useState<Filter>({} as Filter);
@@ -39,13 +40,8 @@ function App() {
         </Grid>
         <Grid xs={12} id="Main">
           <Paper elevation={5} square={false} className="DataTableGrid">
-            {pageSize === "sm" && (
-              <div key="rotation-message" className="rotationMessageDiv">
-                برای نمایش اطلاعات بیشتر ، لطفا گوشی خود را به حالت افقی
-                بچرخانید.
-              </div>
-            )}
-            <DataTable Data={data} pageSize={pageSize} />
+            {pageSize !== "sm" && <DataTable Data={data} pageSize={pageSize} />}
+            {pageSize === "sm" && <MobileTable Data={data} />}
           </Paper>
         </Grid>
         <Grid xs={12} id="Footer">

@@ -55,7 +55,7 @@ export const  CustomerTypeFa:CustomerTypeDic = {
 }
 
 export enum Max_Amount{
-    Real_Max = 5_075_000_000,
+    Real_Max = 3_000_000_000,
     Max = 50_000_000_000
 }
 
