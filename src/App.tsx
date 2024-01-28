@@ -9,11 +9,13 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import MobileTable from "./components/MobileTable";
+import MobileTable, { sortRows } from "./components/MobileTable";
 
 function App() {
   const [filter, setFilter] = useState<Filter>({} as Filter);
   const [data, setData] = useState<DataRow[]>([]);
+  const [mobileSortOrder, setMobileSortOrder] = useState("amount");
+
   const theme = useTheme();
   const pageSize = useMediaQuery(theme.breakpoints.up("md"))
     ? "lg"
@@ -41,7 +43,13 @@ function App() {
         <Grid xs={12} id="Main">
           <Paper elevation={5} square={false} className="DataTableGrid">
             {pageSize !== "sm" && <DataTable Data={data} pageSize={pageSize} />}
-            {pageSize === "sm" && <MobileTable Data={data} />}
+            {pageSize === "sm" && (
+              <MobileTable
+                Data={sortRows(data, mobileSortOrder)}
+                orderBy={mobileSortOrder}
+                setOrderBy={setMobileSortOrder}
+              />
+            )}
           </Paper>
         </Grid>
         <Grid xs={12} id="Footer">

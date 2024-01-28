@@ -230,6 +230,7 @@ input[type=number] {
 }
 
 .mobileLeftGrid{
+    padding-left: 2%;
     font-family: rezvan !important;
     text-align: left;
 }
@@ -240,7 +241,7 @@ input[type=number] {
     padding: 10%;
     width: fit-content;
     border-radius:100%;
-    margin-right: 45%;
+    margin-right: 40%;
 }
 
 .mobileRowPaybackPeriod{
@@ -249,7 +250,7 @@ input[type=number] {
     padding: 10%;
     width: fit-content;
     border-radius:20%;
-    margin-right: 45%;
+    margin-right: 40%;
 }
 
 .mobileRowPaybackType{
@@ -258,7 +259,7 @@ input[type=number] {
     padding: 10%;
     width: fit-content;
     border-radius:10%;
-    margin-right: 45%;
+    margin-right: 40%;
 }
 
 .topRibbon {
@@ -288,4 +289,15 @@ input[type=number] {
         0 calc(50% - var(--f)/2));
   }
 
-  
+  .mobileSortDiv{
+    padding:2%
+  }
+
+  .mobileSortSelect{
+    font-family: mitra !important;
+  }
+
+  .mobileSortText{
+    font-family: rezvan !important;
+    margin-left: 2%;
+  }
