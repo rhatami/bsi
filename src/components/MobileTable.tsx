@@ -74,12 +74,12 @@ const MobileSort = ({
         className="mobileSortSelect"
         onChange={(e) => setOrderBy(e.target.value)}
       >
-        <MenuItem value="amount">مبلغ</MenuItem>
-        <MenuItem value="paybackPeriod">مدت بازپرداخت</MenuItem>
+        <MenuItem value="amount">مبلغ تسهیلات</MenuItem>
         <MenuItem value="installment">مبلغ قسط</MenuItem>
         <MenuItem value="interest">نرخ سود</MenuItem>
+        <MenuItem value="paybackPeriod">مدت بازپرداخت</MenuItem>
+        <MenuItem value="paybackType">نحوه بازپرداخت</MenuItem>
         <MenuItem value="name">نام طرح</MenuItem>
-        <MenuItem value="paybackType">نوع بازپرداخت</MenuItem>
       </Select>
     </div>
   );
