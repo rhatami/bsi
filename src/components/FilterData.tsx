@@ -57,78 +57,6 @@ const TarhArr: TarhArray = {
   [TarhName.TM6]: Timche6,
 };
 
-function PMT(
-  LoanAmount: number,
-  InterestRate: number,
-  PaybackPeriod: number,
-  PaybackType: Payback_Type
-) {
-  InterestRate = InterestRate / 1200;
-
-  if (PaybackType === Payback_Type.OneTime) {
-    const interest = LoanAmount * InterestRate * PaybackPeriod;
-    return LoanAmount + interest;
-  }
-
-  if (InterestRate === 0) return LoanAmount / PaybackPeriod;
-
-  let pmt, pvif;
-
-  pvif = Math.pow(1 + InterestRate, PaybackPeriod);
-  pmt = (InterestRate * (LoanAmount * pvif)) / (pvif - 1);
-
-  return pmt;
-}
-
-function getDataRow(
-  Tarh: Tarh,
-  DepositAmount: number,
-  DepositPeriod: number,
-  CusType: CustomerType
-) {
-  let DataRows: DataRow[] = [];
-  let ID = 0;
-  let LoanAmount = 0;
-  for (let row of Tarh.Rows) {
-    if (row.DepositPeriod == DepositPeriod) {
-      LoanAmount = (DepositAmount * row.Ratio) / 100;
-      // don't consider loan amounts below the Tarh loan range
-      if (LoanAmount < Tarh.MinLoan) continue;
-      // correct loan amounts above the Tarh max loan
-      if (LoanAmount > Tarh.MaxLoan) LoanAmount = Tarh.MaxLoan;
-      // correct loan amounts above the Real person's max loan (for MSP)
-      if (
-        (CusType == CustomerType.Real ||
-          CusType == CustomerType.Legal_Personel) &&
-        LoanAmount > Max_Amount.Real_Max
-      )
-        LoanAmount = Max_Amount.Real_Max;
-
-      // Add Data to array
-      DataRows.push({
-        ...row,
-        id: ID,
-        TarhName: TarhNameFa[Tarh.Name],
-        LoanAmount: LoanAmount,
-        Installment: Math.round(
-          PMT(LoanAmount, row.InterestRate, row.PaybackPeriod, row.PaybackType)
-        ),
-      });
-    }
-  }
-
-  return DataRows;
-}
-
-function dataID(dataRow: DataRow[]) {
-  let id = 1;
-  for (let row of dataRow) {
-    row.id = id;
-    id += 1;
-  }
-  return dataRow;
-}
-
 export function FilterData(filter: Filter) {
   // converting to numbers if string
   filter.DepAmo = Number(filter.DepAmo);
@@ -171,9 +99,146 @@ export function FilterData(filter: Filter) {
     if (dataRow) Result = Result.concat(dataRow);
   }
 
-  // returning null if no filtered data found
-  if (Result.length == 0) return Result;
+  // Trim data and find best rows
+  Result = Trim(Result);
 
   // return data with unique id for each row and sort by LoanAmount Desc
   return dataID(Result).sort((a, b) => b.LoanAmount - a.LoanAmount);
+}
+
+// **********************
+//       Functions
+// **********************
+function PMT(
+  LoanAmount: number,
+  InterestRate: number,
+  PaybackPeriod: number,
+  PaybackType: Payback_Type
+) {
+  InterestRate = InterestRate / 1200;
+
+  if (PaybackType === Payback_Type.OneTime) {
+    const interest = LoanAmount * InterestRate * PaybackPeriod;
+    return LoanAmount + interest;
+  }
+
+  if (InterestRate === 0) return LoanAmount / PaybackPeriod;
+
+  let pmt, pvif;
+
+  pvif = Math.pow(1 + InterestRate, PaybackPeriod);
+  pmt = (InterestRate * (LoanAmount * pvif)) / (pvif - 1);
+
+  return pmt;
+}
+
+// Calculating payable row for each tarh based on filters
+function getDataRow(
+  Tarh: Tarh,
+  DepositAmount: number,
+  DepositPeriod: number,
+  CusType: CustomerType
+) {
+  let DataRows: DataRow[] = [];
+  let ID = 0;
+  let LoanAmount = 0;
+  for (let row of Tarh.Rows) {
+    if (row.DepositPeriod == DepositPeriod) {
+      LoanAmount = (DepositAmount * row.Ratio) / 100;
+      // don't consider loan amounts below the Tarh loan range
+      if (LoanAmount < Tarh.MinLoan) continue;
+      // correct loan amounts above the Tarh max loan
+      if (LoanAmount > Tarh.MaxLoan) LoanAmount = Tarh.MaxLoan;
+      // correct loan amounts above the Real person's max loan (for MSP)
+      if (
+        (CusType == CustomerType.Real ||
+          CusType == CustomerType.Legal_Personel) &&
+        LoanAmount > Max_Amount.Real_Max
+      )
+        LoanAmount = Max_Amount.Real_Max;
+
+      // Add Data to array
+      DataRows.push({
+        ...row,
+        id: ID,
+        TarhName: TarhNameFa[Tarh.Name],
+        LoanAmount: LoanAmount,
+        Installment: Math.round(
+          PMT(LoanAmount, row.InterestRate, row.PaybackPeriod, row.PaybackType)
+        ),
+      });
+    }
+  }
+
+  return DataRows;
+}
+
+// Assign an ID to each row
+function dataID(dataRow: DataRow[]) {
+  let id = 1;
+  for (let row of dataRow) {
+    row.id = id;
+    id += 1;
+  }
+  return dataRow;
+}
+
+// trim best rows and remove worse rows
+function Trim(data: DataRow[]) {
+  let removableIndexes: number[] = [];
+  // find removable indexes
+  data.forEach((row, index) => {
+    if (isBetter(row, data)) removableIndexes.push(index);
+  });
+  // remove removable indexes
+  return data.filter((row, index) => !removableIndexes.includes(index));
+}
+
+// find if is a better element in array
+function isBetter(row: DataRow, arr: DataRow[]) {
+  for (let e of arr) {
+    // only compare same payback type with eachother
+    if (e.PaybackType != row.PaybackType) continue;
+
+    // ignore identically same rows
+    if (
+      e.LoanAmount == row.LoanAmount &&
+      e.PaybackPeriod == row.PaybackPeriod &&
+      e.InterestRate == row.InterestRate
+    )
+      continue;
+    // all parameters are better
+    if (
+      e.LoanAmount > row.LoanAmount &&
+      e.PaybackPeriod > row.PaybackPeriod &&
+      e.InterestRate < row.InterestRate
+    )
+      return true;
+    // equal amount but better paybak and interest
+    if (
+      e.LoanAmount == row.LoanAmount &&
+      e.PaybackPeriod >= row.PaybackPeriod &&
+      e.InterestRate <= row.InterestRate
+    )
+      return true;
+
+    // equal payback but better amount and interest
+    if (
+      e.PaybackPeriod == row.PaybackPeriod &&
+      e.LoanAmount >= row.LoanAmount &&
+      e.InterestRate <= row.InterestRate
+    )
+      return true;
+
+    // equal interest but better payback and amount
+    if (
+      e.InterestRate == row.InterestRate &&
+      e.LoanAmount >= row.LoanAmount &&
+      e.PaybackPeriod >= row.PaybackPeriod
+    )
+      return true;
+  }
+
+  // no better row found
+  return false;
 }
