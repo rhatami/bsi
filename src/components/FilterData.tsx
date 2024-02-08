@@ -191,7 +191,7 @@ function Trim(data: DataRow[]) {
     if (isBetter(row, data)) removableIndexes.push(index);
   });
   // remove removable indexes
-  return data.filter((row, index) => !removableIndexes.includes(index));
+  return data.filter((row) => !removableIndexes.includes(data.indexOf(row)));
 }
 
 // find if is a better element in array
